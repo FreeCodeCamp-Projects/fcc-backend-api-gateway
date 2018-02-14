@@ -4,7 +4,7 @@
   "description": "The Shared AWS API Gateway project for the Freecodecamp Backend API projects",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\"
+    "test": "echo \"Error: no test specified\""
   },
   "repository": {
     "type": "git",
