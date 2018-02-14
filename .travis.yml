@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - 8
+
+# command to install dependencies
+install: "npm install"
+
+cache:
+  directories:
+    - "node_modules"
+
+# scripts run as part of build
+scripts:
+  - npm install -g serverless
+
+after_success:
+  - sls deploy || exit 1

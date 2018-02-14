@@ -1,0 +1,30 @@
+service: fcc-backend-shared-api-gateway
+
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  timeout: 5
+
+resources:
+  Description: CloudFormation Stack for the shared API Gateway used by the FreeCodeCamp Backend API Challenges
+  Resources:
+    fccBackendApiGateway:
+      Type: "AWS::ApiGateway::RestApi"
+      Properties:
+        Description: "FreeCodeCamp Backend API Challenges shared API Gateway"
+        Name: "fcc-backend-api-gateway"
+        
+  Outputs:
+    ApiGatewayId:
+      Value:
+        Ref: fccBackendApiGateway
+      Export:
+        Name: FCCBACKENDAPIGATEWAY
+    ApiGatewayRootResourceId:
+      Value:
+        Fn::GetAtt:
+          - fccBackendApiGateway
+          - RootResourceId
+      Export:
+        Name: FCCBACKENDAPIGATEWAYROOTRESOURCEID
